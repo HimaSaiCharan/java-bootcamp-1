@@ -1,11 +1,11 @@
 package statistics;
 
 public class Probability {
-    public static double chance(int totalPossibilities, int noOfTrails) {
-        return (double) noOfTrails/totalPossibilities;
+    public static double chance(int totalOutcomes, int favourableOutcomes) {
+        return (double) favourableOutcomes/totalOutcomes;
     }
 
-    public static double notChance(int totalPossibilities, int noOfTrails) {
-        return 1 -  Probability.chance(totalPossibilities, noOfTrails);
+    public static double notChance(int totalOutcomes, int favourableOutcomes) {
+        return 1 -  Probability.chance(totalOutcomes, favourableOutcomes);
     }
 }

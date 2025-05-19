@@ -14,4 +14,9 @@ class ProbabilityTest {
     void notTailProbability() {
         assertEquals(0.5, Probability.notChance(2, 1));
     }
+
+    @Test
+    void gettingTailsWhenTwoCoinsFlipped() {
+            assertEquals(0.25, Probability.chance(4, 1));
+    }
 }
