@@ -9,8 +9,8 @@ public class Probability {
         this.probability = probability;
     }
 
-    public static Probability create(double probability) {
-        if (probability > 1 || probability < 0) throw new RuntimeException("Invalid Probability");
+    public static Probability create(double probability) throws InvalidProbabilityException {
+        if (probability > 1 || probability < 0) throw new InvalidProbabilityException();
 
         return new Probability(probability);
     }
@@ -31,11 +31,11 @@ public class Probability {
         return new Probability(1 - this.probability);
     }
 
-    public Probability and(Probability otherProbability) {
+    public Probability and(Probability otherProbability) throws InvalidProbabilityException {
         return Probability.create(otherProbability.probability * probability);
     }
 
-    public Probability or(Probability otherProbability) {
+    public Probability or(Probability otherProbability) throws InvalidProbabilityException {
         return not().and(otherProbability.not()).not();
     }
 }
