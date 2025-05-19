@@ -6,21 +6,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RectangleTest {
     @Test
-    void calculatesArea() {
+    void calculatesAreaWithWidthZero() {
+        Rectangle rectangle = new Rectangle(4, 0);
+        assertEquals(0, rectangle.area());
+    }
+
+    @Test
+    void calculatesAreaWithLengthZero() {
+        Rectangle rectangle = new Rectangle(0, 4);
+        assertEquals(0, rectangle.area());
+    }
+
+    @Test
+    void calculatesAreaWithDimensionsZero() {
+        Rectangle rectangle = new Rectangle(0, 0);
+        assertEquals(0, rectangle.area());
+    }
+
+    @Test
+    void calculatesAreaWithPositiveDimensions() {
         Rectangle rectangle = new Rectangle(2, 3);
         assertEquals(6, rectangle.area());
 
-        Rectangle rectangle4 = new Rectangle(4, 5);
-        assertEquals(20, rectangle4.area());
-
-        Rectangle rectangle1 = new Rectangle(0, 0);
-        assertEquals(0, rectangle1.area());
-
-        Rectangle rectangle2 = new Rectangle(4, 0);
-        assertEquals(0, rectangle2.area());
-
-        Rectangle rectangle3 = new Rectangle(0, 4);
-        assertEquals(0, rectangle3.area());
+        Rectangle rectangle1 = new Rectangle(4, 5);
+        assertEquals(20, rectangle1.area());
     }
 
     @Test
