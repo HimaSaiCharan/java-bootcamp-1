@@ -1,11 +1,38 @@
 package statistics;
 
+import java.util.Objects;
+
 public class Probability {
-    public static double chance(int totalOutcomes, int favourableOutcomes) {
-        return (double) favourableOutcomes/totalOutcomes;
+    private final double probability;
+
+    private  Probability(double probability) {
+        this.probability = probability;
     }
 
-    public static double notChance(int totalOutcomes, int favourableOutcomes) {
-        return 1 -  Probability.chance(totalOutcomes, favourableOutcomes);
+    public static Probability create(double probability) {
+        if (probability > 1 || probability < 0) throw new RuntimeException("Invalid Probability");
+
+        return new Probability(probability);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Probability)) return false;
+        Probability that = (Probability) o;
+        return Double.compare(probability, that.probability) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(probability);
+    }
+
+    public Probability complement() {
+        return new Probability(1 - this.probability);
+    }
+
+    public Probability and(Probability probability) {
+        double newProbability = probability.probability * this.probability;
+        return Probability.create(newProbability);
     }
 }

@@ -7,16 +7,25 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProbabilityTest {
     @Test
     void tailProbability() {
-        assertEquals(0.5, Probability.chance(2, 1));
+        Probability tailProbability = Probability.create(0.5);
+        assert(tailProbability.equals(Probability.create(0.5)));
     }
 
     @Test
     void notTailProbability() {
-        assertEquals(0.5, Probability.notChance(2, 1));
+        Probability notTailProbability = Probability.create(0.5).complement();
+        assert(notTailProbability.equals(Probability.create(0.5)));
     }
 
     @Test
     void gettingTailsWhenTwoCoinsFlipped() {
-            assertEquals(0.25, Probability.chance(4, 1));
+        Probability tailProbability = Probability.create(0.5).and(Probability.create(0.5));
+        assert(tailProbability.equals(Probability.create(0.25)));
+    }
+
+    @Test
+    void invalidProbabilityForCreation() {
+        assertThrows(RuntimeException.class, ()->Probability.create(2));
+        assertThrows(RuntimeException.class, ()->Probability.create(-3));
     }
 }
