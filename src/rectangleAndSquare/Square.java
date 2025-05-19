@@ -1,4 +1,4 @@
-package modules;
+package rectangleAndSquare;
 
 public class Square extends Rectangle {
     public Square(int side) {

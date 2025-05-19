@@ -1,4 +1,4 @@
-package modules;
+package rectangleAndSquare;
 
 public class Rectangle {
 
