@@ -10,7 +10,6 @@ public class Rectangle {
         this.width = width;
     }
 
-
     public int area() {
         return length * width;
     }
