@@ -27,12 +27,15 @@ public class Probability {
         return Objects.hashCode(probability);
     }
 
-    public Probability complement() {
+    public Probability not() {
         return new Probability(1 - this.probability);
     }
 
-    public Probability and(Probability probability) {
-        double newProbability = probability.probability * this.probability;
-        return Probability.create(newProbability);
+    public Probability and(Probability otherProbability) {
+        return Probability.create(otherProbability.probability * probability);
+    }
+
+    public Probability or(Probability otherProbability) {
+        return not().and(otherProbability.not()).not();
     }
 }
