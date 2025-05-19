@@ -24,6 +24,7 @@ class SquareTest {
     void calculatesPerimeterWithPositiveSides() {
         Square square = new Square(2);
         assertEquals(8, square.perimeter());
+
         Square square1 = new Square(3);
         assertEquals(12, square1.perimeter());
     }
