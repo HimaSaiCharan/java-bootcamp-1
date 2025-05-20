@@ -3,29 +3,33 @@ package units;
 import java.util.Objects;
 
 public class Volume {
-    private final double value;
+    private final double unit;
 
-    public Volume(double value) {
-        this.value = value;
+    public Volume(double unit) {
+        this.unit = unit;
     }
 
-    public static Volume liter(double value) {
-        return new Volume(value);
+    public static Volume liter(double l) {
+        return new Volume(convertToBase(l, 1));
     }
 
-    public static Volume gallon(double value) {
-        return new Volume(value * 3.78);
+    public static Volume gallon(double gal) {
+        return new Volume(convertToBase(gal, 3.78));
+    }
+
+    private static double convertToBase(double value, double factor) {
+        return value * factor;
     }
 
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Volume)) return false;
         Volume that = (Volume) o;
-        return Double.compare(value, that.value) == 0;
+        return Double.compare(unit, that.unit) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(value);
+        return Objects.hashCode(unit);
     }
 }
