@@ -28,4 +28,17 @@ class LengthTest {
 
         assertEquals(cm, mm);
     }
+
+    @Test
+    void addTwoLengthValues() {
+        Length measurement1 = Length.inch(2);
+        Length measurement2 = Length.inch(2);
+
+        assertEquals(Length.inch(4), measurement1.add(measurement2));
+
+        Length measurement3 = Length.inch(1);
+        Length measurement4 = Length.inch(2);
+
+        assertEquals(Length.inch(3), measurement3.add(measurement4));
+    }
 }

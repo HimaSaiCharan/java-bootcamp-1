@@ -9,24 +9,24 @@ public class Length {
         this.unit = unit;
     }
 
-    public static Length inch(double in) {
-        return new Length(convertToBaseUnit(in, 12));
-    }
-
     private static double convertToBaseUnit(double value, double factor) {
         return value / factor;
     }
 
+    public static Length inch(double in) {
+        return new Length(convertToBaseUnit(in, 12));
+    }
+
     public static Length feet(double ft) {
-        return new Length(convertToBaseUnit(ft, 1));
+        return new Length( convertToBaseUnit(ft, 1));
     }
 
     public static Length centimeter(double cm) {
-        return new Length(convertToBaseUnit(cm, 12 * 2.5));
+        return new Length( convertToBaseUnit(cm, 12 * 2.5));
     }
 
     public static Length millimeter(double mm) {
-        return new Length(convertToBaseUnit(mm ,12 * 2.5 * 10));
+        return new Length( convertToBaseUnit(mm ,12 * 2.5 * 10));
     }
 
     @Override
@@ -39,5 +39,10 @@ public class Length {
     @Override
     public int hashCode() {
         return Objects.hashCode(unit);
+    }
+
+    public Length add(Length anotherLength) {
+        double newValue = unit + anotherLength.unit;
+        return Length.inch(newValue * 12);
     }
 }
