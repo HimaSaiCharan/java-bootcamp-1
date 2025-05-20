@@ -4,27 +4,27 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LengthUnitTest {
+class LengthTest {
     @Test
     void compareFeetAndInch() {
-        LengthUnit feet = LengthUnit.feet(1);
-        LengthUnit inch = LengthUnit.inch(12);
+        Length feet = Length.feet(1);
+        Length inch = Length.inch(12);
 
         assertEquals(feet, inch);
     }
 
     @Test
     void compareCmAndInch() {
-        LengthUnit cm = LengthUnit.centimeter(10);
-        LengthUnit inch = LengthUnit.inch(4);
+        Length cm = Length.centimeter(10);
+        Length inch = Length.inch(4);
 
         assertEquals(cm, inch);
     }
 
     @Test
     void compareCmAndMm() {
-        LengthUnit cm = LengthUnit.centimeter(1);
-        LengthUnit mm = LengthUnit.millimeter(10);
+        Length cm = Length.centimeter(1);
+        Length mm = Length.millimeter(10);
 
         assertEquals(cm, mm);
     }

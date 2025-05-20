@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VolumeUnitTest {
+class VolumeTest {
 
     @Test
     void compareGallonAndLiter() {
-        VolumeUnit liter = VolumeUnit.liter(3.78);
-        VolumeUnit gallon = VolumeUnit.gallon(1);
+        Volume liter = Volume.liter(3.78);
+        Volume gallon = Volume.gallon(1);
 
         assertEquals(liter, gallon);
     }
